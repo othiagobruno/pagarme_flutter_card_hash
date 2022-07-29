@@ -10,13 +10,14 @@ class PagarMePublicKey {
   String ip;
   String publicKey;
 
-  PagarMePublicKey({this.id, this.dateCreated, this.ip, this.publicKey});
+  PagarMePublicKey({
+    required this.id,
+    required this.dateCreated,
+    required this.ip,
+    required this.publicKey,
+  });
 
   static fromJson(Map<String, dynamic> json) {
-    if (json == null) {
-      return null;
-    }
-
     return PagarMePublicKey(
       id: JsonUtils.valueOrThis('', 'id', json).toString(),
       dateCreated: JsonUtils.valueOrThis('', 'date_created', json).toString(),

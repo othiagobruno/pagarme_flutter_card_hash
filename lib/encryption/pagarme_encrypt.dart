@@ -11,7 +11,7 @@ class PagarMeEncrypt {
   PagarMePublicKey pagarMePublicKey;
   PagarMeCard pagarMeCard;
 
-  PagarMeEncrypt({this.pagarMePublicKey, this.pagarMeCard});
+  PagarMeEncrypt({required this.pagarMePublicKey, required this.pagarMeCard});
 
   String generateCardHash() {
     String cardQueryString = _generateCardQueryString();
@@ -31,8 +31,12 @@ class PagarMeEncrypt {
 
   String _encryptCardQueryString(String cardQueryString) {
     final parser = RSAKeyParser();
-    final RSAPublicKey publicKey = parser.parse(pagarMePublicKey.publicKey);
-    final encrypter = Encrypter(RSA(publicKey: publicKey));
+    final RSAAsymmetricKey publicKey = parser.parse(pagarMePublicKey.publicKey);
+    final encrypter = Encrypter(
+      RSA(
+        publicKey: RSAPublicKey(publicKey.modulus!, publicKey.exponent!),
+      ),
+    );
     final encrypted = encrypter.encrypt(cardQueryString);
 
     return encrypted.base64;

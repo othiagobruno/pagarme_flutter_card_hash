@@ -2,6 +2,8 @@
 /// responsible for generating the RSA key that is used to encrypt the
 /// card data to be sent to your backend (and Pagar.me's API)
 
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:dio/dio.dart';
 import 'package:pagarme_flutter_card_hash/constants/pagarme_constants.dart';
 import 'package:pagarme_flutter_card_hash/exceptions/response_exception.dart';
@@ -13,7 +15,7 @@ class PagarMeApi<T> {
   final _baseUrl = PagarMeConstants.cardHashUrl;
   String pagarMeApiKey;
 
-  PagarMeApi({this.pagarMeApiKey});
+  PagarMeApi({required this.pagarMeApiKey});
 
   Future<PagarMePublicKey> generateEncryptionKeyAndId() async {
     Response response =

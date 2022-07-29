@@ -10,11 +10,12 @@ class PagarMeCard {
   String cardExpirationDate;
   String cardCvv;
 
-  PagarMeCard(
-      {this.cardNumber,
-      this.cardHolderName,
-      this.cardExpirationDate,
-      this.cardCvv});
+  PagarMeCard({
+    required this.cardNumber,
+    required this.cardHolderName,
+    required this.cardExpirationDate,
+    required this.cardCvv,
+  });
 
   String getCardNumber() {
     return this.cardNumber;

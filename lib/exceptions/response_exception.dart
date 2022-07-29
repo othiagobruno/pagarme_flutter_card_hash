@@ -3,7 +3,7 @@
 class ResponseException implements Exception {
   String cause;
 
-  ResponseException({this.cause});
+  ResponseException({required this.cause});
 
   String getCause() {
     return cause;

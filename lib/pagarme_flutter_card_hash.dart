@@ -13,7 +13,8 @@ class PagarMeFlutterCardHash {
   String pagarMeApiKey;
   PagarMeCard pagarMeCard;
 
-  PagarMeFlutterCardHash({this.pagarMeApiKey, this.pagarMeCard});
+  PagarMeFlutterCardHash(
+      {required this.pagarMeApiKey, required this.pagarMeCard});
 
   Future<String> generateCardHash() async {
     PagarMeApi pagarMeApi = PagarMeApi(pagarMeApiKey: this.pagarMeApiKey);

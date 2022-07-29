@@ -7,7 +7,7 @@ import 'dart:async';
 
 class HttpTunnel<T> {
   final dio = new Dio();
-  String url;
+  String? url;
   Options options = new Options();
 
   Future<Response<T>> _returnResponse(dynamic e) async {
